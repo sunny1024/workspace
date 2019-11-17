@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width='device-width', initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>项行茂今天帅呆了</title>
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        .left {
+            width: 500px;
+            height: 500px;
+            padding-top: 50px;
+            padding-left: 50px;
+            background-color: red;
+        }
+    </style>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body>
+    <div id="name" class="left">
+        <canvas id="stockGraph" width="150" height="150">
+            current stock price: $3.15 + 0.15
+        </canvas>
+        <img src="https://www.baidu.com/img/superlogo_c4d7df0a003d3db9b65e9ef0fe6da1ec.png?where=super" alt=""
+            srcset="">
+    </div>
+
+    <script>
+        $.ajax({
+            type: 'GET',
+            url: 'https://cnodejs.org/api/v1/topics',
+            success: function (response) {
+                debugger;
+            }, error: function (error) {
+                debugger;
+            }
+        })
+
+        var list = [{
+            name: 'xxm',
+            age: 18
+        }, {
+            name: 'zl',
+            age: 18
+        }];
+
+        debugger;
+
+        var findBy = function (key, value) {
+            return function (item) {
+                return item[key] == value;
+            }
+        }
+        var obj = list.find(findBy('name', 'xxm'));
+
+        alert("根据相关条件找到的对象为：" + JSON.stringify(obj));
+
+
+
+    </script>
+</body>
+
+</html>

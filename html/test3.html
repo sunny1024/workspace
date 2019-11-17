@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>arguments练习</title>
+    <script>
+        //遍历参数求和
+        function add() {
+            var sum = 0,
+                len = arguments.length;
+            for (var i = 0; i < len; i++) {
+                sum += arguments[i];
+            }
+            return sum;
+        }
+        add(1, 2, 3, 4);
+        //定义链接字符串的函数
+        function myConcat(spearator) {
+            var args = Array.prototype.slice.call(arguments, 1);
+            return args.join(spearator);
+        }
+        document.write(myConcat(",", "red", "orange", "blue"));
+        //定义创建HTML列表的方法
+        function list(type) {
+            var result = "<" + type + "l><li>";
+            var args = Array.prototype.slice.call(arguments, 1)
+            result += args.join("</li><li>");
+            result += "</li></" + type + "l>";
+            return result
+        }
+        var listHTML = list("u", "One", "Two", "Three");
+        document.write(listHTML);
+    </script>
+</head>
+
+<body>
+    <div>今天又开始了新的征程</div>
+</body>
+
+</html>

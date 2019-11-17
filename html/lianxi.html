@@ -1,0 +1,109 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>计时器</title>
+
+</head>
+
+<body>
+    <p id='time'></p>
+    <p id='countDown1'></p>
+    <p id='countDown2'></p>
+    <p id='countDown3'></p>
+    <script type="text/javascript">
+
+        // 获取年月日 星期 时分秒
+        function getDate() {
+            var date = new Date();
+            var myweek = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"]
+            var year = date.getFullYear();   // 年
+            var month = date.getMonth() + 1;    // 月：0-11
+            var day = date.getDate();       // 日
+            var week = date.getDay();      // 星期：0-6
+            var neweek = myweek[week]
+            var hour = date.getHours();      // 时
+            var min = date.getMinutes();    // 分
+            var second = date.getSeconds();    // 秒
+            document.getElementById('time').innerHTML = `当前时间：${year}年${month}月${day}日 ${neweek} ${hour}时${min}分${second}秒`;
+        }
+        setInterval(getDate, 1000);
+
+        // 倒计时功能，参数：1.元素选择器，2.秒数 3. xxx 4. dsf
+        function countDown(element, second) {
+            var interVal = setInterval(function () {
+                second -= 1;
+                if (second === 0) {
+                    clearInterval(interVal);
+                    document.querySelector(element).innerHTML = `倒计时：活动结束！`;
+                } else {
+                    document.querySelector(element).innerHTML = `倒计时：${second} 秒`;
+                }
+            }, 1000);
+        }
+
+        // 第二版：参数：option（对象）
+        function countDown2(options) {
+            var interVal = setInterval(function () {
+                options.second -= 1;
+                if (options.second === 0) {
+                    clearInterval(interVal);
+                    document.querySelector(options.element).innerHTML = `倒计时：活动结束！`;
+                } else {
+                    document.querySelector(options.element).innerHTML = `倒计时：${options.second} 秒`;
+                }
+            }, 1000);
+        }
+
+        countDown('#countDown1', 10, '', '', '12');
+
+        countDown('#countDown2', 5);
+
+        countDown2({
+            second: 15,
+            element: '#countDown3'
+        });
+
+        // 处理任务程序
+        function doTask(obj) {
+            obj.before && obj.before();
+
+            // 等同于下面
+            // if(obj.before){
+            // obj.before();
+            // }
+
+            alert(obj.name + " 开始吃饭！");
+
+            obj.complate && obj.complate();
+
+        }
+        // 回调函数：将函数作为参数，并且在合适的事件执行
+        // 利用回调函数，来维护事情的生命周期。将更多的权利，交给调用者。
+        doTask({
+            name: '项为谦',
+            before: function () {
+                alert("吃饭之前：刷牙！");
+            },
+            complate: function () {
+                alert("10分钟之后。吃完了！");
+            }
+        });
+
+        $.ajax({
+            url: '',
+            type: '',
+            success: function () {
+
+            },
+            error: function () {
+
+            }
+        })
+
+
+    </script>
+</body>
+
+</html>

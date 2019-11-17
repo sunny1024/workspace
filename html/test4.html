@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>同步异步</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+</head>
+
+<body>
+    <script>
+        console.log('a ======>');
+        $.ajax({
+            url: 'https://cnodejs.org/api/v1/topics',
+            async: true,
+            success: function (res) {
+                console.log('第 1 个请求执行完毕！');
+            }
+        })
+
+        console.log('b ======>');
+
+        $.ajax({
+            url: 'https://cnodejs.org/api/v1/topics',
+            async: true,
+            success: function () {
+                console.log('第 2 个请求执行完毕！');
+            }
+        })
+
+        console.log('c ======>');
+
+        $.ajax({
+            url: 'https://cnodejs.org/api/v1/topics',
+            async: true,
+            success: function () {
+                console.log('第 3 个请求执行完毕！');
+            }
+        })
+        console.log('d ======>');
+
+    </script>
+</body>
+
+</html>

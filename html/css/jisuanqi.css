@@ -1,0 +1,50 @@
+    button:focus {
+        outline-style: none;
+    }
+    button:active {
+        background: #f1d299;
+    }
+
+    #container {
+        width: 320px;
+        height: 490px;
+        margin: 0 auto;
+        border: 1px solid black;
+    }
+
+    .result {
+        width: 32opx;
+        height: 150px;
+        background-color: orange;
+    }
+
+
+    .rowNumber {
+        float: left;
+        width: 80px;
+        height: 68px;
+        background-color: beige;
+        border: 1px solid lightgray;
+    }
+    .operator{
+        float: left;
+        width: 80px;
+        height: 68px;
+        background-color: gray;
+        border: 1px solid lightgray;
+    }
+    .empty {
+        clear: both;
+        width: 240px;
+        height: 68px;
+        background-color: olivedrab;
+        border: 1px solid lightgray;
+    }
+
+    .count {
+        float: right;
+        width: 80px;
+        height: 68px;
+        background-color: gray;
+        border: 1px solid lightgray;
+    }

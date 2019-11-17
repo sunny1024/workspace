@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>浏览器对象</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=gkb" />
+</head>
+
+<body>
+    <!--先编写好网页布局-->
+    <p>操作成功</p>
+    <p id=second></p>
+
+    <script type="text/javascript">
+
+        //获取显示秒数的元素，通过定时器来更改秒数。
+        function dispaly() {
+            var sencond = document.getElementById("second")
+        }
+        setInterval(dispaly, 1000);
+        function timing(element, second) {
+            var interVal = setInterval(function () {
+                second -= 1;
+                if (second === 0) {
+                    window.location.assign("https://www.runoob.com")
+                } else {
+                    document.querySelector(element).innerHTML = second + "秒后回到主页";
+                }
+            }, 1000);
+        }
+        timing('#second', 5);
+   //通过window的location和history对象来控制网页的跳转。
+
+    </script>
+</body>
+
+</html>

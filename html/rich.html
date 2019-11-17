@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>Man bites dog</title>
+    <style>
+        p {
+            margin: 0;
+        }
+
+        p>span:not(:last-child)::after {
+            content: ', ';
+            padding-right: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <input type="text" id="content">
+    <button onclick="printCFB($('#content').val())">打印乘法表</button>
+
+    <div id="cfb"></div>
+
+
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <script src="./js/rich.js"></script>
+    <script>
+        function addColor(a, b) {
+            if (a === b) {
+                return `<span style="color:red;">${a}*${b}=${a * b}</span>`
+            } else {
+                return `<span>${a}*${b}=${a * b}<span>`
+            }
+        }
+
+        // 打印 99 乘法表
+        function printCFB(val) {
+            $('#cfb').empty();  // 每次打印之前，清空 dom ， 防止重复渲染
+            if (typeof (Number(val)) !== 'number') {
+                alert("输入的值不符合要求，请重新输入！");
+                return
+            };
+
+            for (let i = 1; i <= Number(val); i++) {   // 层数
+                $('#cfb').append('<p class="row' + i + '"></p>');
+                for (let j = 1; j <= i; j++) {   // 每层数量
+                    $('.row' + i).append(addColor(i, j));
+                }
+            }
+        }
+
+
+
+        function addColor(a, b) {
+            if (a === b) {
+                return
+            }
+        }
+        function pringtCFB(val) {
+            $("#cfb").empty();
+            if (typeof (Number(val)) !== "number") {
+                alert("输出的值不符合要求，请重新输入")
+                return
+            };
+            for (let i = 1; i <= Number(val); i++) {
+                $("#cfb").append('<p class="row' + i + '"></p>');
+                for (let j = 1; j <= i; j++) {
+                    sum = i * j;
+                    document.write(i + "*" + j + "=" + sum + " ")
+                }
+            }
+        }
+
+        // 处理输入的内容
+        function formatStr(str) {
+            if (!str) {
+                return "您没有输入任何内容！";
+            }
+            return `当前输入的内容：${str}`;
+        }
+
+        // 点击确定按钮，执行的函数
+        function clickEvent() {
+            var str = $('#content').val();
+            alert(formatStr(str));
+        }
+
+    </script>
+</body>
+
+</html>

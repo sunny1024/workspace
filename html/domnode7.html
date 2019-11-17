@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> new document </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <style>
+        #table {
+            border-collapse: collapse;
+        }
+    </style>
+    <script type="text/javascript">
+        // 鼠标移动改变背景, 可以通过给每行绑定鼠标移上事件和鼠标移除事件来改变所在行背景色。
+        window.onload = function () {
+            function changeColor() {
+                var tr = document.getElementsByTagName("tr");
+                for (var i = 0; i < tr.length; i++) {
+                    if (i > 0) {
+                        addEvent(tr[i]);
+                    }
+                }
+            }
+            changeColor();
+        }
+
+        // function addLoadEvent(func) {
+        //     var oldnload = window.onload;
+        //     if (typeof window.onload != "function") {
+        //         window.onload = func;
+        //     } else {
+        //         window.onload = function () {
+        //             oldonload();
+        //             func()
+        //         }
+        //     }
+        // }
+        // addLoadEvent(changeColor);
+
+        function nomalColor(x) {
+            x.style.backgroundColor = " #fff";
+        }
+
+        // 给当前元素添加鼠标事件
+        function addEvent(e) {
+            e.onmouseover = function () {
+                this.style.backgroundColor = " #f2f2f2";
+            }
+            e.onmouseout = function () {
+                this.style.backgroundColor = " #fff";
+            }
+        }
+
+
+
+
+        // 编写一个函数，供添加按钮调用，动态在表格的最后一q行添加子节点；
+        function add() {
+            var tb = document.getElementById("table");
+            var newtr = document.createElement("tr");
+            var td = document.createElement("td");
+            newtr.appendChild(td);
+            td.innerHTML = "xh003"
+            var td = document.createElement("td");
+            newtr.appendChild(td);
+            td.innerHTML = "李小红"
+            var td = document.createElement("td");
+            newtr.appendChild(td);
+            td.innerHTML = "返回"
+            tb.appendChild(newtr);
+            addEvent(newtr);
+
+        }
+        //创建删除函数
+
+        function remove1() {
+            for (var i = tr[1].childNodes.length - 1; i >= 0; i--) {
+                var childNode = tr[1].childNodes[i];
+                tr[1].removeChild(childNode)
+            }
+        }
+        function remove2() {
+            for (var i = tr[2].childNodes.length - 1; i >= 0; i--) {
+                var childNode = tr[2].childNodes[i]
+                tr[2].removeChild(childNode)
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <table border="1" width="50%" id="table">
+        <tr>
+            <th>学号</th>
+            <th>姓名</th>
+            <th>操作</th>
+        </tr>
+
+        <tr>
+            <td>xh001</td>
+            <td>王小明</td>
+            <td><a href="javascript:;" onclick="remove1()">删除</a></td>
+            <!--在删除按钮上添加点击事件  -->
+        </tr>
+
+        <tr>
+            <td>xh002</td>
+            <td>刘小芳</td>
+            <td><a href=" javascript:;" onclick="remove2()">删除</a></td>
+            <!--在删除按钮上添加点击事件  -->
+        </tr>
+
+    </table>
+    <input type="button" onclick="add()" value="添加一行" />
+    <!--在添加按钮上添加点击事件  -->
+
+</body>
+
+</html>
+
+<!-- document.getElementsByName
+createElement 新建一个元素
+appendChild 在元素之后插入节点
+node(父元素).appendChild(newnode)
+insertBefore 在元素之前插入节点
+node(父元素).insertBefore(oldnode(父元素的子节点).newnode)
+removeChild
+node(父元素).removeChild(父元素的子节点) 删除会删除全部
+新建文本节点
+createTextNode -->

@@ -1,0 +1,32 @@
+<!DOCTYPE HTML>
+<html>
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>无标题文档</title>
+</head>
+
+<body>
+
+
+    <div><b id="oldnode">JavaScript</b>是一个很常用的技术，为网页添加动态效果。</div>
+    <a href="javascript:replaceMessage()"> 将加粗改为斜体</a>
+
+    <script type="text/javascript">
+        function replaceMessage() {
+            //获取被替换的元素b
+            var oldnode = document.getElementById("oldnode");
+            //获取被替换元素的内容
+            var oldHTML = oldnode.innerHTML
+            //新建i元素
+            var newnode = document.createElement("i");
+            //用i元素替换b
+            oldnode.parentNode.replaceChild(newnode, oldnode);
+            //i元素的内容等同于b元素的内容
+            newnode.innerHTML = oldHTML
+        }    
+    </script>
+
+</body>
+
+</html>
