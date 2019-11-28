@@ -1,0 +1,75 @@
+* {
+    padding: 0;
+    margin: 0;
+}
+li {
+    list-style:none;
+}
+
+.w {
+    width: 1200px;
+    margin: 0 auto;
+}
+.head {
+    height: 42px;
+    margin: 30px auto 0 auto;
+    background: pink;;
+}
+.head .logo {
+    float: left;
+    width: 195px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    border: 1px solid lightblue;
+    margin-right: 60px;
+}
+.head .introduce {
+    float: left;   
+}
+.introduce li {
+    float: left;
+    margin-right: 20px;
+}
+.introduce a {
+    display: block;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 20px;
+    font-size: 18px;
+    color: lightslategray;
+    text-decoration: none;
+}
+.introduce a:hover {
+    border-bottom: 2px solid blue;
+}
+.search {
+    float: left;
+    margin-left: 100px;
+}
+
+.search input {
+    float: left;
+    width: 300px;
+    height: 40px;
+    outline: none;
+    border: 1px solid lightcoral;
+}
+.search button {
+    float: left;
+    display: block;
+    width: 50px;
+    height: 42px;
+    outline: none;
+    background: lightseagreen;
+}
+.account {
+    float: right;
+    height: 42px;
+    line-height: 42px;
+    background: lightsalmon;
+}
+.banner {
+    height: 300px;
+    background:coral
+}
