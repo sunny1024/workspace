@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>递增练习</title>
+    <script>
+        var a = 10 ;
+        a++ ;  //a=11
+        var b =(a++ + 12); //先赋值后自加 a++=11   结果23
+        console.log(b)
+
+        var c = 11 ;
+        ++c ;//c=12
+        var d =(++c +13); //先加后赋值 ++c=13  结果26
+        console.log(d)
+
+        var e =20;
+        console.log(e++ + ++e) //先赋值后自加  e++=20  e=21  先自加后赋值 ++e=22  e=22  结果42
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

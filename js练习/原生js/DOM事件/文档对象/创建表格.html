@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border: 1px solid black;
+            width: 480px;
+            margin: 0 auto;
+        }
+
+        thead th {
+            border: 1px solid black;
+            background: #999;
+            font-weight: normal;
+        }
+
+        tbody td {
+            border: 1px solid black;
+            text-align: center;
+            color: rgb(1, 8, 5);
+        }
+
+        tbody td a {
+            text-decoration: none;
+            color: rgb(1, 8, 5);
+        }
+    </style>
+</head>
+
+<body>
+    <table cellspacing="0">
+        <thead>
+            <tr>
+                <th>姓名</th>
+                <th>科目</th>
+                <th>成绩</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script>
+        function inittabeldata(datas) {
+            var tbody = document.querySelector("tbody");
+            for (var i = 0; i < datas.length; i++) {
+                var tr = document.createElement("tr");
+                tbody.appendChild(tr);
+                for (var k in datas[i]) {
+                    var td = document.createElement("td");
+                    tr.appendChild(td);
+                    var content = datas[i][k];
+                    td.innerHTML = content;
+                }
+                var td = document.createElement("td");
+                td.innerHTML = "<a href='javascript:;'>删除</a>";
+                tr.appendChild(td);
+                var as = document.querySelectorAll("a");
+                as[i].onclick = function () {
+                    tbody.removeChild(this.parentNode.parentNode);
+                }
+            }
+        }
+        var datas = [{
+            name: "魏璎珞",
+            subject: "javascript",
+            score: 100
+        }, {
+            name: "弘历",
+            subject: "javascript",
+            score: 99
+        }, {
+            name: "傅恒",
+            subject: "javascript",
+            score: 98
+        }, {
+            name: "明玉",
+            subject: "javascript",
+            score: 88
+        }, {
+            name: "项帅帅",
+            subject: "javascript",
+            score: 100
+        }
+        ]
+        inittabeldata(datas)
+    </script>
+</body>
+
+</html>

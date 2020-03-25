@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        textarea {
+            height: 200px;
+            width: 300px;
+            border: 1px solid pink;
+            resize: none;
+            margin-left: 100px;
+            margin-top: 100px;
+            outline: none;
+        }
+
+        li {
+            list-style: none;
+            height: 30px;
+            width: 500px;
+            line-height: 30px;
+            background-color: lightsteelblue;
+            margin-bottom: 10px;
+            color: black;
+        }
+
+        li a {
+            float: right;
+            text-decoration: none;
+            color: black;
+        }
+    </style>
+</head>
+
+<body>
+    <textarea></textarea>
+    <button>发布</button>
+    <ul></ul>
+    <script>
+        var text = document.querySelector("textarea");
+        var btn = document.querySelector("button");
+        var ul = document.querySelector("ul");
+        btn.onclick = function () {
+            if (text.value == "") {
+                alert("请输入内容");
+                return false;
+            } else {
+                // 点击事件时追加li,并把文本框中的内容赋值给li
+                var li = document.createElement("li");
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>";
+                ul.insertBefore(li, ul.children[0]);
+                // 点击删除时，删除相应的li
+                // 获取所有的a标签
+                var as = document.querySelectorAll("a");
+                // 循环给每个a绑定事件
+                for (var i = 0; i < as.length; i++) {
+                    // 点击某个a时，删除对应的li
+                    as[i].onclick = function () {
+                        ul.removeChild(this.parentNode);
+                    }
+                }
+            }
+        }
+    </script>
+</body>
+
+</html>

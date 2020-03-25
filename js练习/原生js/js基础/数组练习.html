@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>数组</title>
+    <script>
+        // var arr = ["星期一", "星期二", "星期三", "星期四", "星期五", "星期六", "星期日"]
+        // console.log(arr[6])
+
+        // 遍历数组
+        // var arr = ["关羽", "张飞", "马超", "赵云", "黄忠", "刘备", "姜维"]
+        // for (var i = 0; i < arr.length; i++) {
+        //     console.log(arr[i]);
+        // }
+
+        // 求数组[2，4，6，8，10]的和及平均值
+        // 先声明变量sum;
+        // 遍历求和
+        // var arr = [2, 4, 6, 8, 10];
+        // var sum = 0;
+        // var average = 0;
+        // for (var i = 0; i < arr.length; i++) {
+        //     sum += arr[i];
+        // }
+        // average = sum / arr.length;
+        // console.log(sum, average);
+
+
+        // 求数组[1,34,56,89,45,23,12,88]中的最大值
+        // 先声明一个变量max   初始化等于数组的第一个元素
+        // 遍历数组  如果数组元素大于max，则把数组元素赋值给max
+        // var arr = [1, 34, 56, 89, 45, 23, 12, 88];
+        // var max = arr[0];
+        // for (var i = 1; i < arr.length; i++) {
+        //     if (arr[i] > max) {
+        //         max = arr[i]
+        //     }
+        // }
+        // console.log(max)
+
+        // 将数组分割成字符串 ["red","green","blue"]
+        // 先声明一个变量str用来拼接字符串
+        // 循环获取数组中的元素 进行拼接
+        // var arr = ["red", "green", "blue"];
+        // var str = "";
+        // var symbol = "💖";
+        // for (var i = 0; i < arr.length; i++) {
+        //     str += arr[i] + symbol
+        // }
+        // console.log(str);
+
+        // 追加数组元素
+        // var arr = [1, 2, 3];
+        // arr[3] = 4;
+        // console.log(arr);
+        // var arr = [3, 4, 5, 6, 7];
+        // arr.length = 10;
+        // console.log(arr);
+
+        // 在数组[2，4，18，34，24，80，5，8]中找出大于等于10的元素并保存在新数组中
+        // var arr = [2, 4, 18, 34, 24, 80, 5, 8];
+        // var arr1 = [];
+        // var j = 0;
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (arr[i] >= 10) {
+        //         arr1[j] = arr[i];//arr1的下标要从0开始，依次递增
+        //         j++
+        //     }
+        // }
+        // console.log(arr1)
+
+        // 去除[0,3,5,0,7,9,0,2]数组中的0，并保存到新数组中
+        // var arr = [0, 3, 5, 0, 7, 9, 0, 2];
+        // var arr1 = [];
+        // for (var i = 0; i < arr.length; i++) {
+        //     if (arr[i] > 0) {
+        //         arr1[arr1.length] = arr[i]
+        //     }
+        // }
+        // console.log(arr1)
+
+        // 颠倒数组顺序[1,2,3,4,5,6,7,8,9,10]
+        // var arr = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10];
+        // var arr1 = [];
+        // for (var i = arr.length - 1; i >= 0; i--) {
+        //     arr1[arr1.length] = arr[i];
+        // }
+        // console.log(arr1)
+
+        // 新建一个数组，里面存放10个整数（1～10）
+        // var arr = [];
+        // for (var i = 0; i < 10; i++) {
+        //     arr[i] = i + 1
+        // }
+        // console.log(arr)
+
+        // 冒泡排序
+        var arr = [2, 5, 8, 1, 9, 4, 3]
+        var length = arr.length
+        for (var i = 0; i <= length - 1; i++) {
+            for (var j = 0; j <= length - i - 1; j++) {
+                if (arr[j] > arr[j + 1]) {
+                    [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]]
+                }
+            }
+        }
+        console.log(arr)
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

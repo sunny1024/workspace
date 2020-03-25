@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="https://cdn.bootcss.com/jquery/3.4.1/jquery.js"></script>
+    <style>
+        .content {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        ul {
+            padding: 0;
+            height: 50px;
+            line-height: 50px;
+            background: lightgray;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .current {
+            background: red;
+            color: #fff;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="content">
+        <ul class="content-list">
+            <li>商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+            <li>本店好评</li>
+        </ul>
+        <div class="menu">
+            <div class="item" style="display:block;">商品介绍相关内容</div>
+            <div class="item">规格与包装相关内容</div>
+            <div class="item">售后保障相关内容</div>
+            <div class="item">商品评价相关内容</div>
+            <div class="item">本店好评相关内容</div>
+        </div>
+    </div>
+    <script>
+        $(function () {
+            $("ul li").click(function () {
+                // 给当前点击的Li添加样式，移除其他li的样式
+                $(this).addClass("current").siblings().removeClass("current");
+                // 获取当前点击li的索引号
+                var index = $(this).index();
+                // 当前点击Li对应的div显示，其他div隐藏
+                $(".menu div").eq(index).show().siblings().hide();
+            })
+        })
+    </script>
+</body>
+
+</html>

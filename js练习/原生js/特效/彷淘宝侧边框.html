@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        .slider-banner {
+            position: absolute;
+            top: 300px;
+            left: 50%;
+            margin-left: 600px;
+            background-color: pink;
+            width: 75px;
+            height: 150px;
+        }
+
+        .w {
+            width: 1200px;
+            margin: 10px auto;
+        }
+
+        .header {
+            height: 150px;
+            background-color: purple;
+        }
+
+        .banner {
+            height: 300px;
+            background-color: lightblue;
+        }
+
+        .main {
+            height: 1000px;
+            background-color: lightgreen;
+        }
+
+        span {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="slider-banner">
+        <span class="go-back">返回顶部</span>
+    </div>
+    <div class="header w">头部区域</div>
+    <div class="banner w">banner区域</div>
+    <div class="main w">主体区域</div>
+    <script>
+        // 获取侧边栏及banner区域元素
+        var sliderBanner = document.querySelector(".slider-banner");
+        var banner = document.querySelector(".banner");
+        var bannerTop = banner.offsetTop;
+        var sliderTop = sliderBanner.offsetTop;
+        var sliderBannerTop = sliderTop - bannerTop;
+        // 获取main主体元素
+        var main = document.querySelector(".main");
+        var goBack = document.querySelector(".go-back");
+        var mainTop = main.offsetTop;
+        document.addEventListener("scroll", function () {
+            // 当页面被卷去的头部大于等于了头部区域的高度就把侧边栏设置为固定定位
+            if (window.pageYOffset >= bannerTop) {
+                sliderBanner.style.position = "fixed";
+                sliderBanner.style.top = sliderBannerTop + "px";
+            } else {
+                sliderBanner.style.position = "absolute";
+                sliderBanner.style.top = "300px";
+            }
+            // 当页面被卷去的部分大于等于了主体的高度,就显示隐藏的内容
+            if (window.pageYOffset >= mainTop) {
+                goBack.style.display = "block";
+            } else {
+                goBack.style.display = "none";
+            }
+        })
+        // 点击回到顶部(缓动效果)
+        goBack.addEventListener("click", function () {
+            animates.animate(window, 0);
+        })
+        var animates = {
+            animate: function (el, target, callback) {
+                //当不断点击按钮时，盒子会越走越快，是因为我们不停的调用定时器
+                //解决的方式就是让元素只有一个定时器
+                //先清除以前的定时器，只保留当前的一个定时器执行
+                clearInterval(el.Timer)
+                el.Timer = setInterval(function () {//用对象的方式避免命名冲突，能优化性能
+                    //缓动效果
+                    var slowMotion = (target - el.window.pageYOffset) / 10;
+                    slowMotion = slowMotion > 0 ? Math.ceil(slowMotion) : Math.floor(slowMotion);
+                    if (el.window.pageYOffset == target) {
+                        clearInterval(el.Timer)
+                        // if (callback) {
+                        //     callback();
+                        // }
+                        callback && callback();//类似短路原理，如果为真则调用，如果为假则不调用；
+                    }
+                    else {
+                        // el.style.left = el.offsetLeft + slowMotion + "px";
+                        window.scroll(0, window.pageYOffset + slowMotion)
+                    }
+                }, 15)
+            },
+        };
+    </script>
+</body>
+
+</html>

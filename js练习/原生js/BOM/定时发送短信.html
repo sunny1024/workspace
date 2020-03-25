@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+    手机号码：<input type="text"><button>发送</button>
+    <script>
+        var button = document.querySelector("button");//获取button按钮
+        var time = 10;//初始化定义时间
+        button.addEventListener('click', function () {
+            button.disabled = true;//当点击时禁用button按钮
+            var timer = setInterval(function () {
+                if (time == 0) {
+                    clearInterval(timer);
+                    button.disabled = false;
+                    button.innerHTML = "发送";
+                    time = 10;//如果倒计时为0，则停止计时器，并解禁按钮，修改button内的值，并重新定义变量（如果不重新定义变量，就不会触发下次的发送）
+                }
+                else {
+                    button.innerHTML = "还剩下" + time + "秒";
+                    time--;//变量递减 做倒计时的功能
+                }
+            }, 1000);
+        })
+    </script>
+</body>
+
+</html>
