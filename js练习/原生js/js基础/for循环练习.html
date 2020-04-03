@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>for循环</title>
+  <script>
+    // 循环年龄  =是赋值  ==是判断  不要混淆  打印应该写在最外面等循环体结束
+    for (var i = 1; i <= 100; i++) {
+      if (i == 1) {
+        console.log("你今年1岁了，你出生了")
+      } else if (i == 100) {
+        console.log("你今年100岁了，你已经死了")
+      } else {
+        console.log("你今年" + i + "岁了")
+      }
+    }
+
+    // 求1-100之间的整数之和
+    var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+      // sum = sum+i
+      sum += i;
+    }
+    console.log("1-100之间的整数之和是：" + sum);
+
+    // 求1-100之间的整数之和的平均数
+    var sum = 0;
+    for (var i = 1; i <= 100; i++) {
+      sum += i;
+    }
+    var average = sum / 100;
+    console.log("1-100之间的整数之和的平均数是:" + average);
+
+    // 求1-100之间的奇数和偶数之和
+    var even = 0;
+    var odd = 0;
+    for (var i = 1; i <= 100; i++) {
+      if (i % 2 == 0) {
+        even = even + i
+      } else {
+        odd = odd + i
+      }
+    }
+    console.log("1-100之间所有奇数的和为:" + even);
+    console.log("1-100之间所有偶的和为:" + odd);
+
+    // 求1-100之间能被3整数的数之和
+    var result = 0;
+    for (var i = 1; i <= 100; i++) {
+      if (i % 3 == 0) {
+        result = result + i
+      }
+    }
+    console.log("1-100之间能被3整数的数之和为:" + result);
+
+    // 输入框  请输入班级人数
+    // for循环 根据输入的人数 弹出对应个数的输入框
+    // 在弹出的输入框中输入个人成绩
+    //  求成绩和  求平均数
+    var num = prompt("请输入班级的人数");
+    var sum = 0;
+    var average = 0;
+    for (var i = 1; i <= num; i++) {
+      var score = prompt("请输入第" + i + "个人成绩");
+      sum = sum + parseFloat(score);
+    }
+    average = sum / num;
+    alert("班级的总分为：" + sum);
+    alert("班级的平均分为：" + average)
+
+    // 根据输入框输入的数字  打印相应数字的星星
+    var num = prompt("请输入你想要打印爱心的个数");
+    var str = "";
+    for (var i = 1; i <= num; i++) {
+      str = str + "💖"
+    }
+    document.write(str);
+
+    // 根据输入框 输入的行数和列数打印相应行数列数的爱心
+    var rows = prompt("请输入你想要打印爱心的行数");
+    var cols = prompt("请输入你想要打印爱心的列数")
+    var str = "";
+    for (var i = 1; i <= rows; i++) {
+      for (var j = 1; j <= cols; j++) {
+        str = str + "💖";
+      }
+      str = str + "\n";
+    }
+    console.log(str);
+
+
+    var str = "";
+    var lenOut = 10;
+    var lenNumber = 12;
+
+    for (var i = 1; i <= lenOut; i++) { // 第一行
+      for (var j = i; j <= lenNumber; j++) {
+        str = str + "💖";
+      }
+      str = str + "\n";
+    }
+    console.log(str);
+
+
+
+    for (let i = 9; i >= 1; i--) {
+      let str = "";
+      for (let j = i; j >= 1; j--) {
+        str += `${i}*${j}=${i * j} `;
+      }
+      document.write(`<p>${str}</p>`);
+    }
+
+    for (let i = 9; i >= 1; i--) {
+
+      // 里层循环：负责每一行的输出
+      let lineStr = "";
+      for (let j = i; j >= 1; j--) {
+
+        // var str = i + "*" + j + "=" + i*j + " ";
+        lineStr += i + "*" + j + "=" + i * j + " ";
+
+        debugger;
+      }
+      debugger;
+      document.write(lineStr + '<br>');
+    }
+    for (var i = 1; i <= 9; i++) {
+      var str = "";
+      for (var j = 1; j <= i; j++) {
+        str = str + j + "*" + i + "=" + i * j + '\t';
+      }
+      document.write(str + "<br>");
+    }
+
+  </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

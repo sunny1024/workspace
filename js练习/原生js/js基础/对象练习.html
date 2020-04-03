@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>对象</title>
+    <script>
+        // 使用字面量创建对象
+        var dog = {
+            name: "可可",
+            type: "阿拉斯加犬",
+            age: 5,
+            color: 'red',
+            skill: function () {
+                console.log("bark");
+                console.log("showFilm")
+            }
+        }
+        // 调用方法
+        dog.skill()
+
+        //使用new Object创建对象
+        var people = new Object;
+        people.name = "鸣人";
+        people.sex = "男";
+        people.age = 19;
+        people.skill = function () {
+            console.log("影分身术");
+        }
+        // 调用方法
+        console.log(people.name);
+        people.skill();
+
+        //创建构造函数
+        function Hero(name, type, blood) {
+            this.name = name;
+            this.type = type;
+            this.blood = blood;
+            this.skill = function (attack) {
+                console.log(attack);
+            }
+        }
+        var lp = new Hero("廉颇", "力量型", "500血量");
+        console.log(lp.name);
+        console.log(lp.type);
+        console.log(lp.blood);
+        lp.skill("近战");
+        var hy = new Hero("后裔", "射手型", "100血量");
+        console.log(hy.name);
+        console.log(hy.type);
+        console.log(hy.blood);
+        hy.skill("远战");
+
+        // 使用字面量创建一个电脑对象
+        var computer = {
+            color: "red",
+            weigth: "2kg",
+            brand: "Lenovo",
+            type: "thinkpad",
+            activion: function () {
+                console.log("看电影、听音乐、打游戏、敲代码");
+            }
+        }
+        computer.activion();
+
+        //使用构造函数创建一个按钮对象
+        function Button(width, height, Color) {
+            this.width = width;
+            this.height = height;
+            this.backgroundColor = Color;
+            this.click = function (onclick) {
+                console.log(onclick);
+            }
+        }
+        var but = new Button("100px", "50px", "gold");
+        console.log(but.width);
+        but.click("点击");
+
+        //使用字面量创建一个车的对象
+        var car = {
+            weigth: "1500kg",
+            color: "red",
+            type: "Benz",
+            activion: function () {
+                console.log("载人、拉货、耕田");
+            }
+        }
+        car.activion();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

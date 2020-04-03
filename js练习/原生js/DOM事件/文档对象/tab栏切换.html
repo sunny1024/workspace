@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        /* input {
+            outline: none;
+        } */
+        /* .menu {
+            display: none;
+            padding: 0;
+        }
+
+        li {
+            list-style: none;
+        }
+
+        .hole {
+            width: 200px;
+            margin: 0 auto;
+        }
+
+        .nav {
+            float: left;
+            height: 30px;
+            width: 30px;
+            font-size: 14px;
+            list-style: none;
+            margin-right: 10px;
+            border: 1px solid black;
+        }
+
+        .nav em {
+            font-style: normal;
+        }
+ */
+        /* .box {
+            width: 220px;
+            margin: 100px auto;
+        }
+
+        .box li {
+            float: left;
+            height: 24px;
+            width: 24px;
+            background-color: pink;
+            margin: 15px;
+            background: url(tao.png) no-repeat;
+            background-size: 24px 597px;
+        }  */
+
+        /* .login {
+            margin: 0 20px;
+            color: #999;
+            outline: none;
+        }
+
+        .pink {
+            border: 1px solid pink;
+        }
+
+        .banner {
+            position: relative;
+            height: 80px;
+            width: 1000px;
+            margin: 50px auto;
+            background: url(jidong.jpg) no-repeat;
+        }
+
+        .icon {
+            position: absolute;
+            top: 0;
+            right: 0;
+            width: 20px;
+            height: 20px;
+            background: burlywood;
+        } */
+        .content {
+            width: 600px;
+            margin: 0 auto;
+        }
+
+        ul {
+            padding: 0;
+            height: 50px;
+            line-height: 50px;
+            background: lightgray;
+        }
+
+        li {
+            float: left;
+            list-style: none;
+            padding: 0 10px;
+            cursor: pointer;
+        }
+
+        .current {
+            background: red;
+            color: #fff;
+        }
+
+        .item {
+            display: none;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- 获取当前时间 -->
+    <!-- <div></div> -->
+
+    <!-- 点击改变图片 -->
+    <!-- <p>123</p>
+    <img src="../css3练习/bear.png">  -->
+
+
+    <!-- 依据时间改变背景 -->
+    <!-- <div></div>
+    <img src=img.z.gif><br> -->
+
+    <!-- 循环改变背景图标 -->
+    <!-- <ul class="box">
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul> -->
+
+    <!-- 显示隐藏内容 -->
+    <!-- <input type="text" value="邮箱/手机" class="login">
+    <input type="text" placeholder="邮箱/手机" class="login"> -->
+
+    <!-- 关闭广告 -->
+    <!-- <div class="banner">
+        <div class="icon"></div>
+    </div> -->
+
+    <!-- 获得焦点显示下拉菜单 -->
+    <!-- <div class="hole">
+        <div>登录</div>
+        <div class="nav">
+            微博
+        </div>
+        <ul class="menu">
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+        </ul>
+        <div>博客</div>
+    </div> -->
+
+    <!-- 开关灯 -->
+    <!-- <button class="lamp">开关灯</button>  -->
+
+    <!-- 导航 -->
+    <div class="content">
+        <ul class="content-list">
+            <li>商品介绍</li>
+            <li>规格与包装</li>
+            <li>售后保障</li>
+            <li>商品评价</li>
+            <li>本店好评</li>
+        </ul>
+        <div class="menu">
+            <div class="item">商品介绍相关内容</div>
+            <div class="item">规格与包装相关内容</div>
+            <div class="item">售后保障相关内容</div>
+            <div class="item">商品评价相关内容</div>
+            <div class="item">本店好评相关内容</div>
+        </div>
+    </div>
+
+    <script>
+        // 显示当前时间
+        // var div = document.querySelector("div");
+        //如果改变文档对象的内容需要用到某种方法  先需要封装一个函数，然后再调用这个函数
+        //添加事件处理程序要采取函数赋值  匿名函数 
+        // div.innerHTML = times();
+
+        // function times() {
+        //     var date = new Date();
+        //     var year = date.getFullYear();
+        //     var month = date.getMonth() + 1;
+        //     var day = date.getDate();
+        //     var arr = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+        //     var week = date.getDay();
+        //     return year + "年" + month + "月" + day + "天" + arr[week];
+        // }
+
+        // 点击改变图片
+        // var p = document.querySelector("P");
+        // var img = document.querySelector("img");
+        // p.onclick = function () {
+        //     img.src = "../css3练习/mountain.png";
+        // }
+
+        // 依据当前时间更改图片和内容
+        // var div = document.querySelector("div");
+        // var img = document.querySelector("img");
+        // var date = new Date();
+        // var h = date.getHours();
+        // if (h < 12) {
+        //     img.src = "img.z.gif";
+        //     div.innerText = "早上好"
+        // } else if (h < 18) {
+        //     img.src = "img.x.jif.gif";
+        //     div.innerText = "下午好"
+        // } else {
+        //     img.src = "img.w.jif.gif";
+        //     div.innerText = "晚上好"
+        // }
+        // var input = document.querySelector("input");
+        // var btn = document.querySelector("button")
+        // btn.onclick = function () {
+        //     btn.disabled = true;
+        // }
+
+        // 循环更改背景位置
+        //获取所有符合的元素
+        // var lis = document.querySelectorAll("li");
+        // for (var i = 0; i < lis.length; i++) {
+        //     var img = i * 44
+        //     // 给每个li都更改背景位置
+        //     lis[i].style.backgroundPosition = "0 -" + img + "px";
+        // }
+
+        // 显示隐藏内容
+        // var inp = document.querySelector("input");
+        // inp.onfocus = function () {
+        //     if (this.value === "邮箱/手机") {
+        //         this.value = "";
+        //     }
+        //     this.className = "login pink"
+        //     this.style.color = "#333";
+        // }
+        // inp.onblur = function () {
+        //     if (this.value === "") {
+        //         this.value = "邮箱/手机";
+        //     }
+        //     this.className = "login"
+        //     this.style.color = "#999";
+        // }
+
+        // // 关闭广告
+        // var ban = document.querySelector(".banner");
+        // var icon = document.querySelector(".icon");
+        // icon.onclick = function () {
+        //     ban.style.display = "none";
+        // }
+
+        // // 下拉菜单
+        // var nav = document.querySelector(".nav")
+        // var menu = document.querySelector(".menu");
+        // nav.onmouseover = function () {
+        //     menu.style.display = "block";
+        // }
+        // nav.onmouseout = function () {
+        //     menu.style.display = "none";
+        // }
+
+        // // 开关灯
+        // var bnt = document.querySelector("button");
+        // var hole = document.body;
+        // var flag = 0;
+        // bnt.onclick = function () {
+        //     if (flag == 0) {
+        //         hole.style.backgroundColor = "black";
+        //         flag = 1;
+        //     } else if (flag == 1) {
+        //         hole.style.backgroundColor = "white";
+        //         flag = 0;
+        //     }
+        // }
+
+        /**
+        * 发给胜多负少的
+        * @params index {Number} sdsdfsdfsdf
+        * @params name {String} sdfsdfdsfds 
+        */
+
+        /**
+        * 设置当前选中的Tab
+        * @params index {Number} Tab的下标
+        */
+        function setCurrent(index) {
+            // 设置当前 tab 样式
+            document.querySelectorAll('.content-list > li')[index].className = 'current';
+
+            // 设置显示当前 tab 对应的内容
+            document.querySelectorAll('.menu > div')[index].style.display = "block";
+        }
+
+        // 导航栏
+        var lis = document.querySelector(".content-list").querySelectorAll("li");
+        var item = document.querySelectorAll(".item")
+        for (var i = 0; i < lis.length; i++) {
+            // 给li添加自定义属性 标明序号
+            lis[i].setAttribute("index", i);
+            // 点击导航  点击哪个颜色跟着变化
+            lis[i].onclick = function () {
+                for (var i = 0; i < lis.length; i++) {
+                    // 先删除所有的样式
+                    lis[i].className = "";
+                }
+
+                // 给当前点击的li添加样式
+                this.className = "current";
+                // 显示隐藏相关内容
+                // 获取出当前点击的li的序号
+                var index = this.getAttribute("index");
+                for (var i = 0; i < lis.length; i++) {
+                    // 先隐藏所有的内容
+                    item[i].style.display = "none";
+                }
+                // 显示当前点击的内容
+                item[index].style.display = "block";
+            }
+        }
+
+        setCurrent(3);
+
+
+
+    </script>
+</body>
+
+</html>

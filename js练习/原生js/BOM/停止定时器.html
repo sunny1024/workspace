@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+
+</html>
+
+<body>
+    <button class="start">开启定时器</button>
+    <button class="stop">停止定时器</button>
+    <script>
+        var start = document.querySelector(".start");
+        var stop = document.querySelector(".stop");
+        var timer = null;//需要定义一个全局变量 后面的停止定时才能调用到该变量  变量初始化需要定义一个空的对象 否则会报错
+        start.addEventListener('click', function () {
+            timer = setInterval(function () {
+                console.log("你好")
+            }, 1000);
+        })
+        stop.addEventListener('click', function () {
+            clearInterval(timer);
+        })
+    </script>
+</body>
+
+</html>

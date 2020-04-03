@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script src="js/jquery-3.4.1.min.js"></script>
+    <script src="js/car.js"></script>
+    <style>
+        .w {
+            width: 1300px;
+            margin: 0 auto;
+        }
+
+        .all {
+            color: red;
+        }
+
+        em {
+            font-style: normal;
+        }
+
+        .cart-item-list {
+            border: 1px solid rgba(0, 0, 0, .2);
+            margin: 10px 0;
+        }
+
+        .cart-head {
+            height: 50px;
+            background-color: rgba(0, 0, 0, .2);
+            line-height: 50px;
+        }
+
+        .cart-head>div {
+            display: inline-block;
+            height: 50px;
+            width: 140px;
+            margin-left: 15px;
+        }
+
+        .cart-head .t-price {
+            margin-left: 300px;
+        }
+
+        .check-cart-item {
+            height: 100px;
+            margin-top: 20px;
+            border: 1px solid rgba(0, 0, 0, .2);
+        }
+
+        .p-checkbox {
+            display: inline-block;
+            height: 50px;
+            width: 150px;
+            margin-left: 15px;
+        }
+
+        .p-goods {
+            display: inline-block;
+            height: 50px;
+            width: 1100px;
+        }
+
+
+        .p-goods>div {
+            display: inline-block;
+            height: 50px;
+            width: 120px;
+        }
+
+        .quantity-form .itxt {
+            width: 20px;
+            height: 15px;
+            outline: none;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+        }
+
+        .p-price {
+            margin-left: 314px;
+        }
+
+        .p-num,
+        .p-count,
+        .p-delete {
+            margin-left: 40px;
+        }
+
+        .cart-floatbar {
+            height: 50px;
+            line-height: 50px;
+            border: 1px solid rgba(0, 0, 0, .2);
+        }
+
+        .cart-floatbar>div {
+            float: left;
+            margin-left: 15px;
+        }
+
+        .operation>a {
+            margin-left: 30px
+        }
+
+        .cart-floatbar .toolbar-right {
+            float: right;
+
+        }
+
+        .toolbar-right>div {
+            float: left;
+            margin-left: 25px;
+        }
+
+        .btn-area {
+            width: 70px;
+            height: 50px;
+            background-color: red;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all w">
+        <em>全部商品</em>
+    </div>
+    <!-- 购物车核心区域 -->
+    <div class="cart-main w">
+        <div class="cart-head">
+            <div class="t-checkbox">
+                <input type="checkbox" name="" id="" class="checkall">全选
+            </div>
+            <div class="t-goods">商品</div>
+            <div class="t-price">单价</div>
+            <div class="t-num">数量</div>
+            <div class="t-sum">小计</div>
+            <div class="t-action">操作</div>
+        </div>
+        <!-- 商品详细模块 -->
+        <div class="cart-item-list w">
+            <div class="check-cart-item">
+                <div class="p-checkbox">
+                    <input type="checkbox" name="" id="" class="j-checkbox">
+                </div>
+                <div class="p-goods">
+                    <div class="p-msg">【5本12.60元】</div>
+                    <div class="p-price">￥12.60</div>
+                    <div class="p-num">
+                        <div class="quantity-form">
+                            <a href="javascript:;" class="decrement">-</a>
+                            <input type="text" class="itxt" value="1">
+                            <a href="javascript:;" class="increment">+</a>
+                        </div>
+                    </div>
+                    <div class="p-count">￥12.60</div>
+                    <div class="p-delete">
+                        <a href="javascript:;" class="delete">删除</a>
+                    </div>
+                </div>
+            </div>
+            <div class=" check-cart-item">
+                <div class="p-checkbox">
+                    <input type="checkbox" name="" id="" class="j-checkbox">
+                </div>
+                <div class="p-goods">
+                    <div class="p-msg">【5本35.60元】</div>
+                    <div class="p-price">￥35.60</div>
+                    <div class="p-num">
+                        <div class="quantity-form">
+                            <a href="javascript:;" class="decrement">-</a>
+                            <input type="text" class="itxt" value="1">
+                            <a href="javascript:;" class="increment">+</a>
+                        </div>
+                    </div>
+                    <div class="p-count">￥35.60</div>
+                    <div class="p-delete">
+                        <a href="javascript:;" class="delete">删除</a></div>
+                </div>
+            </div>
+            <div class=" check-cart-item">
+                <div class="p-checkbox">
+                    <input type="checkbox" name="" id="" class="j-checkbox">
+                </div>
+                <div class="p-goods">
+                    <div class="p-msg">【5本40.60元】</div>
+                    <div class="p-price">￥40.60</div>
+                    <div class="p-num">
+                        <div class="quantity-form">
+                            <a href="javascript:;" class="decrement">-</a>
+                            <input type="text" class="itxt" value="1">
+                            <a href="javascript:;" class="increment">+</a>
+                        </div>
+                    </div>
+                    <div class="p-count">￥40.60</div>
+                    <div class="p-delete">
+                        <a href="javascript:;" class="delete">删除</a></div>
+                </div>
+            </div>
+        </div>
+        <!-- 结算模块 -->
+        <div class="cart-floatbar w">
+            <div class="select-all">
+                <input type="checkbox" name="" id="" class="checkall">全选
+            </div>
+            <div class="operation">
+                <a href="javascript:;" class="remove-batch">删除选中的商品</a>
+                <a href="javascript:;" class="clear-all">清理购物车</a>
+            </div>
+            <div class="toolbar-right">
+                <div class="amount-sum">已经选:<em style="color:red">1</em>件商品</div>
+                <div class="price-sum">总价:￥<em style="color:red">12.60</em></div>
+                <div class="btn-area"><a href="javascript:;">去结算</a></div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        div {
+            width: 200px;
+            margin: 100px;
+        }
+
+        span {
+            display: inline-block;
+            width: 50px;
+            height: 50px;
+            background-color: black;
+            color: white;
+            line-height: 50px;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <span class="hour">1</span>
+        <span class="minute">2</span>
+        <span class="second">3</span>
+    </div>
+    <script>
+        var hour = document.querySelector(".hour");//返回的是装小时的黑盒子
+        var minute = document.querySelector(".minute")//返回的是装分钟的黑盒子
+        var second = document.querySelector(".second");//返回的是装秒数的黑盒子
+        var myTime = +new Date("2019-12-26 12:00:00");//返回的是用户输入时间的总的毫秒数
+        countTime();//先调用一次函数  避免刷新的时候没有获取到倒计时的功能
+        setInterval(countTime, 1000);
+        function countTime() {
+            var nowTime = +new Date();//返回的是当前时间总的毫秒数
+            var times = (myTime - nowTime) / 1000;//times是剩余时间总的毫秒数
+            var h = parseInt(times / 60 / 60 % 24);
+            h = h < 10 ? "0" + h : h;
+            hour.innerText = h; //把剩余的小时返回给黑色的盒子
+            var m = parseInt(times / 60 % 60);
+            m = m < 10 ? "0" + m : m;
+            minute.innerText = m;
+            var s = parseInt(times % 60);
+            s = s < 10 ? "0" + s : s;
+            second.innerText = s;
+        }
+
+    </script>
+</body>
+
+</html>

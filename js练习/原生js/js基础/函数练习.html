@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>函数</title>
+    <script>
+        // 求任意两个数之间的和
+        // function getSum(num1, num2) {
+        //     return num1 + num2;
+        // }
+        // console.log(getSum(2, 5));
+
+        // // 求任意两个数之间的和
+        // function getSums(num1, num2) {
+        //     var sum = 0;
+        //     for (var i = num1; i <= num2; i++) {
+        //         sum += i
+        //     }
+        //     return sum;
+        // }
+        // console.log(getSums(1, 100));
+
+        // 输入任意两个数字的任意算数运算（简单的计算器小功能），并能弹出运算后的结果
+        function getResult(num1, num2) {
+            return num1 * num2
+        }
+        console.log(getResult(5, 20));
+
+        // 用户任意输入两个数，返回最大值
+        function getMax(num1, num2) {
+            // if(num1>num2){
+            //     return num1
+            // }else {
+            //     return num2
+            // }
+            return num1 > num2 ? num1 : num2
+        }
+        console.log(getMax(5, 8))
+
+        //用户任意输入三个数，返回最大值
+        // function getMaxValue(...args) {
+        //     let _max = null;
+        //     for (let i = 0; i < args.length; i++) {
+        //         if (_max && args[i] > _max) {
+        //             _max = args[i]
+        //         } else {
+        //             _max = args[i];
+        //         }
+        //     }
+        //     return _max;
+        // }
+
+        /*方法说明
+        *@method getMaxValue
+        *@param  参数说明
+        *@return max 最大值
+        */
+        // function getMaxValue(...arr) {
+        //     debugger;
+        //     let [max, ...others] = arr;
+        //     for (let i = 0; i < others.length; i++) {
+        //         if (others[i] > max) {
+        //             max = others[i];
+        //         }
+        //     }
+        //     return max;
+        // }
+        // console.log(`1最大值为：${getMaxValue(2, 50, 8, 10, -8, 20, 0)}`);
+
+        // // 用户输入一个数，判断是不是质数
+        // function getPrime(num) {
+        //     if (num % num == 0 & num % 1 == 0) {
+        //         return num
+        //     }
+        // }
+
+        // function fn(a, b, c) {
+        //     console.log("a------> ---");
+        //     return (a, b, c);
+
+        // }
+        // console.log("b------> " + fn(1, 2, 3));
+
+        // 顺序翻转 
+        // function reversal(arr) {
+        //     var newArr = [];
+        //     for (var i = arr.length - 1; i >= 0; i--) {
+        //         newArr[newArr.length] = arr[i];
+        //     }
+        //     return newArr;
+        // }
+        // console.log("b------>" + reversal([1, 3, 4, 5]));
+
+        // 冒泡排序
+        function sort(arr) {
+            for (var i = 0; i <= arr.length - 1; i++) {
+                for (var j = 0; j <= arr.length - i - 1; j++) {
+                    if (arr[j] > arr[j + 1]) {
+                        [arr[j], arr[j + 1]] = [arr[j + 1], arr[j]];
+                    }
+                }
+            }
+            return arr;
+        }
+        console.log("c--->" + sort([4, 5, 2, 6]));
+
+        //判断闰年  如果是闰年返回真 如果不是闰年返回假
+        // function isRunYear(year) {
+        //     var temp = false;
+        //     if (year % 4 == 0 & year % 100 != 0 || year % 400 == 0) {
+        //         temp = true;
+        //     }
+        //     return temp;
+        // }
+        // console.log("d---->" + isRunYear(1999));
+
+        // 用户输入年份，如果是闰年显示输入的是闰年，2月有29天，不是闰年显示输入的是平年，2月有28天
+        // function show() {
+        //     var year = prompt("请输入年份");
+        //     if (isRunYear(year)) {
+        //         alert("您输入的是闰年，2月有29天")
+        //     } else {
+        //         alert("您输入的是平年，2月有28天")
+        //     }
+        // }
+        // show();
+
+        // 简易计算器
+        function count() {
+            var calculator = prompt("欢迎使用简易计算器:\n1.加法运算;\n2.减法运算;\n3.乘法运算;\n4.除法运算;\n5.退出;\n请输入您的选项:")
+            switch (parseFloat(calculator)) {
+                case 1:
+                    var num1 = prompt("请输入数值");
+                    var num2 = prompt("请输入数值");
+                    alert("求出的和为:" + (parseFloat(num1) + parseFloat(num2)));
+                    this.count();
+                    break;
+                case 2:
+                    var num1 = prompt("请输入数值");
+                    var num2 = prompt("请输入数值");
+                    alert("求出的差为:" + (parseFloat(num1) - parseFloat(num2)));
+                    this.count();
+                    break;
+                case 3:
+                    var num1 = prompt("请输入数值");
+                    var num2 = prompt("请输入数值");
+                    alert("求出的积为:" + (parseFloat(num1) * parseFloat(num2)));
+                    this.count();
+                    break;
+                case 4:
+                    var num1 = prompt("请输入数值");
+                    var num2 = prompt("请输入数值");
+                    alert("求出的商为:" + (parseFloat(num1) / parseFloat(num2)));
+                    this.count();
+                    break;
+                case 5:
+                    alert("退出简易计算器");
+                    break;
+                default:
+            }
+        }
+        count();
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>

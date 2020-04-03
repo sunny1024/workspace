@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        img {
+            position: relative;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- <ul>
+        <li>今天是星期二</li>
+        <li>今天是星期二</li>
+        <li>今天是星期二</li>
+        <li>今天是星期二</li>
+        <li>今天是星期二</li>
+    </ul>
+   
+        // 事件委托
+        var ul = document.querySelector("ul");
+        // ul.onclick = function () {
+        //     this.style.backgroundColor = "pink";
+        // }
+        ul.addEventListener("click", function (e) {
+            e.target.style.backgroundColor = "pink";
+        }) -->
+    <img src="timg.jpg">
+    <script>
+        var img = document.querySelector("img");
+        document.addEventListener('mousemove', function (e) {
+            var x = e.pageX;
+            var y = e.pageY;
+            img.style.left = x - 120 + "px";
+            img.style.top = y - 120 + "px";
+        })
+    </script>
+</body>
+
+</html>
