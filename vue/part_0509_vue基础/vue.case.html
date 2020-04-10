@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tab选项卡</title>
+    <style>
+        #content {
+            width: 500px;
+            height: 800px;
+            margin: 50px auto;
+        }
+
+        .option ul {
+            width: 320px;
+            height: 50px;
+        }
+
+        .option li {
+            float: left;
+            width: 100px;
+            height: 50px;
+            line-height: 50px;
+            text-align: center;
+            border: 1px solid orange;
+            border-bottom: none;
+            list-style: none;
+            cursor: pointer;
+        }
+
+        .option .active {
+            background-color: pink;
+        }
+
+        ul {
+            padding: 0;
+            margin: 0;
+        }
+
+        .option div {
+            width: 580px;
+            height: 450px;
+            line-height: 300px;
+            overflow: hidden;
+            display: none;
+        }
+
+        .option .f-show {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="content">
+        <div class="option">
+            <ul>
+                <li v-for='(item,index) in list' @click='change(index)' :class='currentIndex===index?"active":""'
+                    :key='index'>{{item.title}}</li>
+            </ul>
+            <div :class='currentIndex===index?"f-show":""' :key='item.id' v-for='(item,index) in list'>
+                <img :src='item.path'>
+            </div>
+        </div>
+    </div>
+    <script src="js/js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#content",
+            data: {
+                currentIndex: 0,//当前的索引号为0
+                list: [{
+                    id: 1,
+                    title: 'apple',
+                    path: './picture/apple.jpeg',
+                },
+                {
+                    id: 2,
+                    title: 'banana',
+                    path: './picture/banana.jpeg',
+                },
+                {
+                    id: 3,
+                    title: "garpe",
+                    path: './picture/grape.jpeg',
+                }],
+            },
+            methods: {
+                change(index) {
+                    //在这里实现选项卡切换操作：本质就是操作类名
+                    //如何操作类名？就是通过currentIndex
+                    this.currentIndex = index;
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
