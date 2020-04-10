@@ -10,7 +10,7 @@
 <body>
     <div id="app">
         <div v-if='num>90'>优秀</div>
-        <div v-else-if='num<90&&num>=80'>良好</div>
+        <div v-else-if='num<=90&&num>=80'>良好</div>
         <div v-else-if='num<80&&num>60'>一般</div>
         <div v-else>不及格</div>
         <div v-show="flag">测试v-show</div>
@@ -26,7 +26,7 @@
         var vm = new Vue({
             el: "#app",
             data: {
-                num: 20,
+                num: 90,
                 flag: false,
             },
             methods: {
