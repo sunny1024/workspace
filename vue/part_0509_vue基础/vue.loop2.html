@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <h3>水果列表</h3>
+        <ul>
+            <li v-for='item in fruit'>{{item}}</li>
+            <li v-for='(item,index) in fruit'>{{item+'---'+index}}</li>
+        </ul>
+    </div>
+    <script src="js/js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                fruit: ['苹果', '梨子', '香蕉', '西瓜'],
+            }
+        })
+    </script>
+</body>
+
+</html>

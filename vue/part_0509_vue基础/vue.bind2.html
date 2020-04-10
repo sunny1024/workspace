@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            border: 1px solid black;
+            width: 100px;
+            height: 100px;
+        }
+
+        .change {
+            background-color: aquamarine;
+        }
+
+        .test {
+            color: blue;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="app">
+        <div v-bind:class=[activeClass,changeClass,{test:isTest}]>测试样式</div>
+        <div v-bind:class="arrClasses"></div>
+        <div v-bind:class="objClasses"></div>
+        <button v-on:click='org'>切换</button>
+    </div>
+    <script src="js/js/vue.js"></script>
+    <script>
+        /*
+        样式绑定相关语法细节：
+        1.对象绑定和数组绑定可以结合使用
+        2.class绑定的值可以简化操作
+        3.默认的class如何处理？默认的class会保留
+        */
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                activeClass: 'active',
+                changeClass: 'change',
+                isTest: true,
+                arrClasses: ['active', 'change'],
+                objClasses: {
+                    active: true,
+                    change: true,
+                }
+            },
+            methods: {
+                org: function () {
+                    this.activeClass = '';
+                    this.changeClass = '';
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
