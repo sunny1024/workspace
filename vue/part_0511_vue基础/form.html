@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <!-- number修饰符转化成数值 -->
+        <input type="text" v-model.number="age">
+        <!-- trim修饰符去掉字符串前后的空白间隙 -->
+        <input type="text" v-model.trim="content">
+        <!-- lazy将input事件转化成change事件 -->
+        <input type="text" v-model.lazy='msg'>
+        <div>{{msg}}</div>
+        <button @click="fandle">点击</button>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: "#app",
+            data: {
+                age: 12,
+                content: "",
+                msg: 123,
+            },
+            methods: {
+                fandle: function () {
+                    // console.log(this.age + 13)
+                    console.log(this.content.length)
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
