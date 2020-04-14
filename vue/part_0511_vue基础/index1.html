@@ -13,16 +13,29 @@
     </div>
     <script src="js/vue.js"></script>
     <script>
-        Vue.directive('color', {
-            bind: function (el, binding) {
-                el.style.backgroundColor = binding.value.color;
-            }
-        })
+        // Vue.directive('color', {
+        //     bind: function (el, binding) {
+        //         el.style.backgroundColor = binding.value.color;
+        //     }
+        // }),
+
         var vm = new Vue({
             el: '#app',
             data: {
                 msg: {
                     color: "orange",
+                }
+            },
+            methods: {
+                handle: function () {
+
+                }
+            },
+            directives: {
+                color: {
+                    bind: function (el, binding) {
+                        el.style.backgroundColor = binding.value.color;
+                    }
                 }
             }
         })
