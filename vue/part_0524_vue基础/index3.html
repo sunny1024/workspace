@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{pmsg}}</div>
+        <menu-item :pstr='pstr' :pnum=12 :pbloo='true' :parr='parr' :pobj='pobj'></menu-item>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        // props属性值得类型
+        Vue.component('menu-item', {
+            props: ['pstr', 'pnum', 'pbloo', 'parr', 'pobj'],
+            template: `
+            <div>
+                <div>{{pstr}}</div>
+                <div>{{12+pnum}}</div>
+                <div>{{pbloo}}</div>
+                <div>
+                    <ul>
+                        <li :key='index' v-for='(item,index) in parr'>{{item}}</li>
+                    </ul>
+                </div>
+                <div>
+                    <span>{{pobj.name}}</span>
+                    <span>{{pobj.age}}</span>
+                </div>
+
+             </div>
+            `
+        })
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                pmsg: '父组件中的内容',
+                pstr: 'Hello',
+                parr: ['apple', 'banana', 'orange'],
+                pobj: {
+                    name: 'lisi',
+                    age: 24,
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <div :style='{fontSize:fontSize+"px"}'>{{pmsg}}</div>
+        <menu-item :parr='parr' @enlarge-text='handle($event)'></menu-item>
+    </div>
+    <script src="js/vue.js"></script>
+    <script>
+        // props是单向数据流，不能直接操作父组件中的数据
+        Vue.component('menu-item', {
+            props: ['parr'],
+            template: `
+            <div>
+                <ul>
+                   <li :key='index' v-for='(item,index) in parr'>{{item}}</li> 
+                </ul>
+                <button @click='parr.push("lemon")'>点击</button>
+                <button @click='$emit("enlarge-text")'>扩大字体</button>
+                <button @click='$emit("enlarge-text",10)'>扩大字体</button>
+            </div>   
+            `
+        });
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                pmsg: '父组件的内容',
+                fontSize: 10,
+                parr: ['apple', 'banana', 'orange'],
+            },
+            methods: {
+                handle: function (val) {
+                    this.fontSize += val
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
