@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+
+    </style>
+</head>
+
+<body>
+    <div>
+        请输入： <input id="test" type="text">
+    </div>
+    <script>
+        // 节流：避免短时间内重复触发指定函数
+        function debounce(fn, delay) {
+            let timer = null;
+            return function () {
+                clearTimeout(timer);
+                timer = setTimeout(fn, delay);
+            };
+        };
+
+        // 测试函数（待节流的函数）
+        function testFn() {
+            console.log(`开始搜索！(${new Date().getTime()})`);
+        }
+
+        var test = document.querySelector('#test');
+        // 事件监听
+        test.addEventListener('keyup', debounce(testFn, 500));
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>模板语法</title>
+    <style>
+        #nav {
+            height: 200px;
+            width: 300px;
+            background-color: orange;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <!-- 文本插值 -->
+        <div>{{msg}}</div>
+        <!-- 原始html -->
+        <div v-html='content'></div>
+        <!-- Atrribute属性 -->
+        <div :id='demoId'>123</div>
+        <!-- javascript表达式   要用computed属性进行计算 -->
+        <div>{{number+1}}</div>
+    </div>
+</body>
+<script src="./js/vue.js"></script>
+<script>
+    var vm = new Vue({
+        el: '.app',
+        data: {
+            msg: '今天天气不错',
+            content: `<div><sapn>今天</sapn><span>星期一</span><div>`,
+            demoId: 'nav',
+            number: 4,
+        }
+    })
+</script>
+
+</html>

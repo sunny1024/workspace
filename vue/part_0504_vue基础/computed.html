@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>计算属性</title>
+</head>
+
+<body>
+    <div id="app">
+        <div>{{msg}}</div>
+        <p>{{reverseMessage()}}</p>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                msg: 'hello'
+            },
+            // 反转字符串
+            // computed: {
+            //     reverseMessage: function () {
+            //         return this.msg.split("").reverse().join("")
+            //     }
+            // }
+            methods: {
+                reverseMessage: function () {
+                    return this.msg.split("").reverse().join("");
+                }
+            },
+            computed: {
+                now: function () {
+                    return Date.now()
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>

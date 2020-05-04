@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div>
+        请输入：<input id="test" type="text">
+    </div>
+    <script>
+        function debouse(fn, delay) {
+            let timer = null;
+            return function () {
+                clearTimeout(timer);
+                timer = setTimeout(fn, delay)
+            }
+        };
+        function testFn() {
+            console.log('按下了' + Math.random())
+        };
+        let test = document.querySelector('#test')
+        test.addEventListener('keyup', debouse(testFn, 500));
+
+    </script>
+</body>
+
+</html>
