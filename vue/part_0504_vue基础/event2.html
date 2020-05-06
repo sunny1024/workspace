@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="app">
+        <button @click='great'>点击</button>
+    </div>
+    <script src="./js/vue.js"></script>
+    <script>
+        var vm = new Vue({
+            el: '#app',
+            data: {
+                name: 'Vue js'
+            },
+            methods: {
+                great: function (event) {
+                    alert('Hello' + name + '!');
+                    if (event) {
+                        alert(event.target.tagName)
+                    }
+                }
+            }
+        })
+    </script>
+</body>
+
+</html>
